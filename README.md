@@ -48,3 +48,7 @@ $ python manage.py runserver
 ```
 
 Open browser at http://localhost:8000
+
+
+# Notes
+url to Rest API: http://localhost:8000/uf/api/
