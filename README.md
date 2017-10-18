@@ -1,4 +1,4 @@
-Application to view history of UF values from a selected year. The values are extracted from the page http://www.bcentral.cl through Web Scraping. The downloaded data is stored in a project database if it does not exist, it also allows you to view the value in UFs of a specified amount and date.
+Application to view the history of UF values of a selected year. The values are extracted from the page http://www.bcentral.cl by means of web scraping. The downloaded data is stored in the project database if this data it does not exist, it also allows you to view the UF value for a specified amount and date.
 
 # Requirements
 - **Python 2.x**
