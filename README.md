@@ -18,9 +18,10 @@ Go to the repository folder
 $ cd ufvalues
 ```
 
-Create virtual environment
+Create and activate virtual environment
 ```sh
 $ virtualenv env --no-site-packages
+$ source env/bin/activate
 ```
 
 Install dependencies
@@ -33,7 +34,7 @@ $ cd ..
 
 Create database
 ```sh
-$ python manage.py makemigrations
+$ python manage.py makemigrations ufvalue
 $ python manage.py migrate
 ```
 
