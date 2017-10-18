@@ -1,0 +1,33 @@
+<div class="row-fluid">
+    <div class="col-sm-12 col-md-2 col-lg-2">
+        <div class="form-group">
+            <label>Buscar&nbsp;datos&nbsp;del&nbsp;a&ntilde;o:</label>
+            <select ng-options="item for item in options" class="form-control" 
+                    ng-change="loadData(selected_year)" ng-model="selected_year"></select>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4">&nbsp;</div>
+    <ng-include src="'/static/frontend/uf/formfilterbydate.html'"></ng-include>
+</div>
+<div class="row-fluid">&nbsp;</div>
+<div class="row-fluid">&nbsp;</div>
+<div class="row-fluid" ng-show="ufvalues.length">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr class="active">
+                        <th>D&iacute;a/Mes</th>
+                        <th class="text-center" ng-repeat="month in monthLabels">{{ month | uppercase }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="(index, item) in ufvalues">
+                        <td class="active text-center"><b>{{ item.day }}</b></td>
+                        <td ng-repeat="(idx, month) in [0,1,2,3,4,5,6,7,8,9,10,11]"><span ng-bind="verifyDay(idx, item.items[month], item.day, item.items)"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

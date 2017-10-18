@@ -1,0 +1,19 @@
+<div class="col-sm-12 col-md-6 col-lg-6">
+    <label for="pesos">Calculo&nbsp;de&nbsp;UF&nbsp;seg&uacute;n&nbsp;día</label>
+    <form class="form-inline" action="/uf/price" method="GET" name="ufForm" autocomplete="off">
+        <div class="form-group" style="width:83.5%;">
+            <div class="input-group" style="width:100%;">
+                <div class="input-group-addon">$</div>
+                <input type="number" class="form-control" id="pesos" name="value" ng-model="value" 
+                        placeholder="total pesos ($)" required="required" step=".01" />
+                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                <input date-range-picker class="form-control date-picker" type="text" ng-model="datePicker.date" readonly="readonly"
+                        options="datepickerOptions" placeholder="Click para abrir calendario" id="daterange" required="required" style="cursor:pointer;" />
+                <input type="hidden" name="date" value="{{date}}" required="required" />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:15.5%;" ng-disabled="date == '' || value == ''">
+            <b>Calcular&nbsp;<i class="fa fa-cog" aria-hidden="true"></i></b>
+        </button>
+    </form>
+</div>
