@@ -37,6 +37,11 @@ $ python manage.py makemigrations
 $ python manage.py migrate
 ```
 
+Run tests
+```sh
+$ python manage.py test
+```
+
 Start application
 ```sh
 $ python manage.py runserver
