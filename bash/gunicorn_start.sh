@@ -3,7 +3,7 @@
 NAME="ufvalues"
 USER="ufvalues"
 BASE_FOLDER=/webapps/$USER
-DJANGODIR=$BASE_FOLDER/
+DJANGODIR=$BASE_FOLDER
 SOCKFILE=$DJANGODIR/env/run/gunicorn.sock
 TIMEOUT=600
 GROUP=ufvalues
