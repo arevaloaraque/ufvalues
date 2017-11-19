@@ -34,5 +34,5 @@ exec $VIRTUALENV_BIN/gunicorn ${DJANGO_WSGI_MODULE}:application \
     --group $GROUP \
     --bind unix:$SOCKFILE \
     --log-level info \
-    --log-file log/gunicorn.log
+    --log-file logs/gunicorn.log
 
