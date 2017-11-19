@@ -2,6 +2,7 @@
     Views for methods related to UF values
 '''
 import json
+import datetime
 
 
 from django.shortcuts import render, redirect
@@ -25,12 +26,31 @@ class UfvalueApi(viewsets.ModelViewSet):
     '''
         Viewset Django rest for manage of UF value model
     '''
-    queryset         = Ufvalue.objects.all().order_by('date')
+    # queryset         = Ufvalue.objects.all().order_by('date')
     serializer_class = UfvalueSerializer
     filter_backends  = (filters.DjangoFilterBackend, SearchFilter,)
-    pagination_class = Pagination
+    # pagination_class = Pagination
     filter_class     = UfValueFilter
     search_fields    = '__all__'
+
+    def get_queryset(self):
+        '''
+            check if year does not exist to execute robot
+        '''
+        queryset = Ufvalue.objects.all()
+        _filters = {}
+
+        if 'year' in self.request.GET and len(Ufvalue.objects.filter(key='3112'+self.request.GET.get('year'))) == 0:
+            _filters['key__contains'] = self.request.GET.get('year')
+            extract_historic_uf(self.request.GET.get('year'))
+        else:
+            actualyear = str(datetime.datetime.now().year)
+            if len(Ufvalue.objects.filter(key='3112'+actualyear)) == 0:
+                extract_historic_uf()
+
+        if len(_filters) > 0:
+            queryset = queryset.filter(**_filters).order_by('date')
+        return queryset
 
 
 def uf_list(request):

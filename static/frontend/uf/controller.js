@@ -54,9 +54,9 @@ app.controller('ufvaluectrl', ['$scope','djangoUrl', '$http', '$filter', '$locat
     $scope.loadData = function(_date){
         $.blockUI(localSettingsBlockUI);
         $http({
-            method : 'POST',
-            url    : djangoUrl.reverse('uf:uf_list'),
-            data   : {'date': _date},
+            method : 'GET',
+            url    : djangoUrl.reverse('uf:uf-list'),
+            params : {'year': _date},
             headers: { 'Content-Type': 'application/json; charset=UTF-8' },
         }).then(function(response) {
             $scope.historical = response.data;

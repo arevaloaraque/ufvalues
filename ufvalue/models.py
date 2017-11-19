@@ -14,5 +14,5 @@ class Ufvalue(models.Model):
     value = models.FloatField(null=True, blank=True)
     date  = models.DateField(null=False, blank=False)
 
-    def __str__(self):
-        return self.date, self.value
+    def __unicode__(self):
+        return "%s, %s" % (self.key, self.value)

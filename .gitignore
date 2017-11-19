@@ -4,3 +4,4 @@ db.sqlite3
 *.pyc
 .vscode
 static/bower_components
+microservicio_valor_uf/local_settings.py
